@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /* Задание 3. Вариант 5 Определить, есть ли хотя бы один сотрудник с зарплатой более
 100000.00.*/
 
-public class Employee {
+class Employee {
     private String fullName;
     private Integer age;
     private String department;
@@ -50,21 +50,9 @@ public class Employee {
         this.salary = salary;
     }
 
-    public static void main(String[] args) {
-        ArrayList<Employee> employees = new ArrayList<>();
-
-        // Предзаполненные данные
-        employees.add(new Employee("Иванов Иван Иванович", 30, "Отдел продаж", 90000.0));
-        employees.add(new Employee("Петров Петр Петрович", 45, "Отдел маркетинга", 120000.0));
-        employees.add(new Employee("Сидоров Сидор Сидорович", 28, "Отдел разработки", 95000.0));
-        employees.add(new Employee("Кузнецова Анна Сергеевна", 35, "Отдел HR", 105000.0));
-        employees.add(new Employee("Морозов Алексей Викторович", 40, "Отдел IT", 98000.0));
-
-        boolean hasHighSalary = false;
-        for (Employee emp : employees) {
-            if (emp.getSalary() > 100000.0) {
-                hasHighSalary = true;
-            }
-        }
+    @Override
+    public String toString() {
+        return String.format("Сотрудник: %s, Возраст: %d, Отдел: %s, Зарплата: %.2f",
+                fullName, age, department, salary);
     }
 }
